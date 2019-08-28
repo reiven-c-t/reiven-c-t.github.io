@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    
+    <title>Mac OSにNodebrewで必要なバージョンのNode.jsをインストール | Web Learning Log</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <meta name="description" content="Mac OSで任意のバージョンのNode.jsをインストール&amp;amp;管理するNodebrewというツールの使い方をまとめました。    環境情報 Nodebrewとは Nodebrewのインストール方法 NodebrewでNode.jsをインストールする ここまでのコマンドまとめ    環境情報  Mac OS 10.14 Mojave Homebrew 1.7.6 nodebrew 1.0.1">
+<meta name="keywords" content="Node.js,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac OSにNodebrewで必要なバージョンのNode.jsをインストール">
+<meta property="og:url" content="http://reiven-c-t.github.io/Programming/nodebrew.html">
+<meta property="og:site_name" content="Web Learning Log">
+<meta property="og:description" content="Mac OSで任意のバージョンのNode.jsをインストール&amp;amp;管理するNodebrewというツールの使い方をまとめました。    環境情報 Nodebrewとは Nodebrewのインストール方法 NodebrewでNode.jsをインストールする ここまでのコマンドまとめ    環境情報  Mac OS 10.14 Mojave Homebrew 1.7.6 nodebrew 1.0.1">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="http://reiven-c-t.github.io/images/programming/nodejs.png">
+<meta property="og:updated_time" content="2018-12-01T02:31:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac OSにNodebrewで必要なバージョンのNode.jsをインストール">
+<meta name="twitter:description" content="Mac OSで任意のバージョンのNode.jsをインストール&amp;amp;管理するNodebrewというツールの使い方をまとめました。    環境情報 Nodebrewとは Nodebrewのインストール方法 NodebrewでNode.jsをインストールする ここまでのコマンドまとめ    環境情報  Mac OS 10.14 Mojave Homebrew 1.7.6 nodebrew 1.0.1">
+<meta name="twitter:image" content="http://reiven-c-t.github.io/images/programming/nodejs.png">
+    
+    
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125864003-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-125864003-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="wrap">
+    <!-- BEGIN: navigation -->
+<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky" id="navigation">
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left logo"><a href="/">Web Learning Log</a></div>
+        <div class="uk-navbar-right">
+            <a class="uk-navbar-toggle" href="index.html#" uk-toggle="target: #offcanvas-usage">
+                <img id="menu-icon" src="/img/menu.gif">
+            </a>
+        </div>
+    </nav>
+
+
+    <div class="uk-offcanvas-content">
+
+        <div id="offcanvas-usage" uk-offcanvas="flip: true">
+            <div class="uk-offcanvas-bar">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                <h3>Category</h3>
+                <ul class="uk-list uk-list-divider-list"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/programming/">Programming</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/parent/">parent</a><ul class="uk-list uk-list-divider-list-child"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/parent/child/">child</a></li></ul></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/short/">short</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/test/">test</a></li></ul>
+                <hr/>
+                <h3>ToC</h3>
+                <div id="nav-toc"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- END: navigation -->
+    <!-- BEGIN: main content -->
+
+
+
+<div class="uk-height-large uk-background-cover uk-light uk-flex uk-background-blend-darken uk-background-secondary"
+     uk-parallax="bgy: -200" style="background-image: url('/images/programming/nodejs.png');" id="article-header">
+
+    <div class="uk-text-center uk-margin-auto uk-margin-auto-vertical">
+        <h1>Mac OSにNodebrewで必要なバージョンのNode.jsをインストール</h1>
+        <hr class="uk-divider-small">
+        <ul class="uk-breadcrumb uk-text-small uk-flex-center">
+            <li><a href="/">Top</a></li>
+            
+            <li><a href="/../categories/programming/" class="uk-button uk-button-text">Programming</a></li>
+            
+            <li><a href="../Programming/nodebrew.html">Mac OSにNodebrewで必要なバージョンのNode.jsをインストール</a></li>
+        </ul>
+    </div>
+</div>
+
+<main class="main" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="tm-sidebar-left uk-visible@m uk-overflow-auto"
+         uk-sticky="top: #article-header; bottom: #article; offset:80;" id="content-nav">
+    </div>
+    <div class="uk-background-muted uk-container uk-container-small tm-main">
+        <article class="uk-margin-medium-top" id="article">
+            <p>Mac OSで任意のバージョンのNode.jsをインストール&amp;管理するNodebrewというツールの使い方をまとめました。</p>
+<div class="toc">
+<!-- toc -->
+<ul>
+<li><a href="#huan-jing-qing-bao">環境情報</a></li>
+<li><a href="#nodebrewtoha">Nodebrewとは</a></li>
+<li><a href="#nodebrewnoinsutorufang-fa">Nodebrewのインストール方法</a></li>
+<li><a href="#nodebrewdenode-jswoinsutorusuru">NodebrewでNode.jsをインストールする</a></li>
+<li><a href="#kokomadenokomandomatome">ここまでのコマンドまとめ</a></li>
+</ul>
+<!-- tocstop -->
+</div>
+<h4><span id="huan-jing-qing-bao">環境情報</span><a href="#huan-jing-qing-bao" class="header-anchor"></a></h4>
+<ul>
+<li>Mac OS 10.14 Mojave</li>
+<li>Homebrew 1.7.6</li>
+<li>nodebrew 1.0.1</li>
+</ul>
+<div class="related-article uk-margin-auto-left uk-margin-auto-right uk-width-3-4@s" style="border: solid 2px #fd5480; border-radius:10px;">
+<ul>
+<li><a href="/Programming/homebrew">Homebrewのインストールとアップグレードの方法</a></li>
+<li><a href="/Programming/textlint">Node.jsによる文章校正ツール textlintの使い方</a></li>
+</ul>
+</div>
+<h3><span id="nodebrewtoha">Nodebrewとは</span><a href="#nodebrewtoha" class="header-anchor"></a></h3>
+<p>NodebrewとはNode.jsのバージョンを管理するためのツールです。
+最近の言語には開発サイクルは短いものが多いです。その中でもとくにNode.jsの開発サイクルは非常に短いです。Node.jsでのアプリケーション開発で、サードパーティライブラリを使用するとき、Node.jsのバージョンが違うことで挙動が違ったり、そもそも動かなかったりすることがよくあります。</p>
+<p>そんな時、プログラムの実行環境をアプリケーションによって適宜切り替える必要が出てきます。これは他の言語でも言えることです。</p>
+<h3><span id="nodebrewnoinsutorufang-fa">Nodebrewのインストール方法</span><a href="#nodebrewnoinsutorufang-fa" class="header-anchor"></a></h3>
+<p>Mac OSにhomebrewが入っているものとします。</p>
+<p>以下のコマンドでnodebrewをインストールできます。</p>
+<pre><code class="language-bash">brew install nodebrew;
+</code></pre>
+<p>もしnodebrewがすでにインストール済みの場合、次のコマンドでnodebrewをアップグレードできます。</p>
+<pre><code class="language-bash">brew upgrade nodebrew;
+</code></pre>
+<p>Nodebrewをインストールした後、まず、nodebrewのsetupのためのディレクトリを作成するコマンドを実行します。</p>
+<pre><code class="language-bash">/usr/local/opt/nodebrew/bin/nodebrew setup_dirs;
+</code></pre>
+<p>次にnodebrewへパスを通すため、ホームフォルダの.bash_profileファイルに次の行を追加します。</p>
+<pre><code class="language-bash">export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=/usr/local/var/nodebrew/current/bin:$PATH
+</code></pre>
+<h3><span id="nodebrewdenode-jswoinsutorusuru">NodebrewでNode.jsをインストールする</span><a href="#nodebrewdenode-jswoinsutorusuru" class="header-anchor"></a></h3>
+<p>まずNodebrewでインストールできるNode.jsの一覧を<code>nodebrew ls-remote</code>で確認します。</p>
+<pre><code class="language-bash">$ nodebrew ls-remote
+v0.0.1    v0.0.2    v0.0.3    v0.0.4    v0.0.5    v0.0.6
+~~省略~~
+v10.0.0   v10.1.0   v10.2.0   v10.2.1   v10.3.0   v10.4.0   v10.4.1   v10.5.0
+v10.6.0   v10.7.0   v10.8.0   v10.9.0   v10.10.0  v10.11.0
+
+io@v1.0.0 io@v1.0.1 io@v1.0.2 io@v1.0.3 io@v1.0.4 io@v1.1.0 io@v1.2.0 io@v1.3.0
+io@v2.3.2 io@v2.3.3 io@v2.3.4 io@v2.4.0 io@v2.5.0
+~~省略~~
+io@v3.0.0 io@v3.1.0 io@v3.2.0 io@v3.3.0 io@v3.3.1
+</code></pre>
+<p>上の結果から、実行時点で最新のNode.js v10.11.0をインストールします。</p>
+<pre><code class="language-bash">nodebrew install v10.11.0
+</code></pre>
+<p>インストールが完了したら、nodebrewでローカルにNode.js v10.11.0が存在することを確認します。</p>
+<pre><code class="language-bash">nodebrew ls;
+v6.12.0
+v10.11.0
+
+current: v6.12.0
+</code></pre>
+<p>上記のようにv6.12.0とv10.11.0がローカルに存在していることを確認しました。(v6.12.0は以前インストールしています。)</p>
+<p>次にnodebrewで新たにインストールしたv10.11.0に切り替えます。</p>
+<pre><code class="language-bash">nodebrew use v10.11.0;
+</code></pre>
+<p>これでnode v10.11.0がセットされました。</p>
+<p>現在のNode.jsのバージョンを確認してv10.11.0であれば成功です。</p>
+<pre><code class="language-bash">node --version;
+</code></pre>
+<p>また、同様に別バージョンのnodeをインストールし、<code>nodebrew use</code>コマンドで切り替えることもできます。またnodeの最新版をインストールするさい、直接バージョンを指定する以外にも、<code>nodebrew install latest</code>という方法もあります。</p>
+<pre><code>reiven@Reiven-Mac Downloads$ nodebrew ls
+v6.12.0
+v10.11.0
+
+current: v10.11.0
+reiven@Reiven-Mac Downloads$ nodebrew use v6.12.0
+use v6.12.0
+reiven@Reiven-Mac Downloads$ node --version
+v6.12.0
+</code></pre>
+<h3><span id="kokomadenokomandomatome">ここまでのコマンドまとめ</span><a href="#kokomadenokomandomatome" class="header-anchor"></a></h3>
+<pre><code class="language-bash"># nodebrewインストール
+brew install nodebrew;
+/usr/local/opt/nodebrew/bin/nodebrew setup_dirs;
+# path追加
+echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' &gt;&gt; ~/.bash_profile;
+echo 'export PATH=/usr/local/var/nodebrew/current/bin:$PATH' &gt;&gt; ~/.bash_profile;
+# nodeのバージョン一覧確認
+nodebrew ls-remote;
+# nodeの最新版インストール&amp;アクティベート
+nodebrew install latest;
+nodebrew use latest;
+node --version;
+</code></pre>
+
+        </article>
+    </div>
+    </div>
+
+    <hr class="uk-divider-icon">
+    <div class="uk-background-muted uk-container uk-container-small">
+        <aside class="" id="article-footer">
+            <div class="meta uk-margin-medium-bottom">
+                <ul class="uk-list uk-text-small">
+                    <li>Created at:
+                        <time datetime="2018-10-06T06:10:40.000Z"
+                              itemprop="datePublished">2018-10-06</time>
+                    </li>
+                    <li>
+                        Updated at:
+                        <time datetime="2018-12-01T02:31:47.000Z"
+                              itemprop="datePublished">2018-10-06</time>
+                    </li>
+                    
+                    <li>Category:
+                        
+                        <span itemprop="keywords">
+                        <a href="/../categories/programming/" class="" rel="tag">Programming</a>
+                            </span>
+                        
+                        
+                        
+                    <li>Tag:
+                        
+                        <span itemprop="keywords">
+                        <a href="/../tags/node-js/" class="" rel="tag">Node.js</a>
+                        </span>
+                        
+                        <span itemprop="keywords">
+                        <a href="/../tags/javascript/" class="" rel="tag">JavaScript</a>
+                        </span>
+                        
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="meta uk-margin-medium-bottom uk-text-center">
+                <a href="https://twitter.com/share?url=../programming/ubuntu18.04-usb-media-with-mac.html"
+                   class="uk-icon-button" uk-icon="icon: twitter"></a>
+                <a href="/atom.xml" class="uk-icon-button" uk-icon="icon: rss"></a>
+            </div>
+
+            <div class="meta uk-margin-medium-bottom">
+                <div class="uk-child-width-1-2@s  uk-light" uk-grid>
+                </div>
+            </div>
+            
+            <section id="comments">
+                <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered
+                            by Disqus.</a></noscript>
+                </div>
+            </section>
+            
+            <script>
+                var disqus_shortname = 'web-learning-log';
+                
+                var disqus_url = 'http://reiven-c-t.github.io/Programming/nodebrew.html';
+                
+                (function () {
+                    var dsq = document.createElement('script');
+                    dsq.type = 'text/javascript';
+                    dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            
+            
+        </aside>
+    </div>
+
+
+</main>
+<!-- END: main content -->
+    <footer class="footer uk-light uk-background-secondary">
+    <div class="uk-container uk-container-small">
+        <div class="uk-child-width-1-3@s uk-margin-top uk-column-grid uk-grid-divider" uk-grid>
+            <div>
+                <h3>About me</h3>
+                <p>
+                    機械学習の勉強をしている大学生です。 Web制作も趣味でやってます。
+                    2017年秋から1年、アメリカでコンピュータサイエンスを勉強してきます。
+                </p>
+            </div>
+            <div>
+                <h3>Category</h3>
+                <ul class="uk-list uk-list-divider-list"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/programming/">Programming</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/parent/">parent</a><ul class="uk-list uk-list-divider-list-child"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/parent/child/">child</a></li></ul></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/short/">short</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/test/">test</a></li></ul>
+                <hr/>
+                <div class="uk-margin-medium-bottom"></div>
+
+                
+                <h3>Archive</h3>
+                <div class="widget">
+                    <ul class="uk-list uk-list-divider-list"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="archives/2018/12/">12月 2018</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="archives/2018/10/">10月 2018</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="archives/2018/09/">9月 2018</a></li></ul>
+                </div>
+                
+            </div>
+            <div>
+                <h3>タグクラウド</h3>
+                <div class="tag-cloud">
+                <a class="tag-4-link" href="tags/anaconda/">Anaconda</a><a class="tag-4-link" href="tags/gpu/">GPU</a><a class="tag-4-link" href="tags/homebrew/">Homebrew</a><a class="tag-4-link" href="tags/javascript/">JavaScript</a><a class="tag-4-link" href="tags/macos/">MacOS</a><a class="tag-4-link" href="tags/node-js/">Node.js</a><a class="tag-4-link" href="tags/python/">Python</a><a class="tag-4-link" href="tags/python3/">Python3</a><a class="tag-4-link" href="tags/tensorflow/">Tensorflow</a><a class="tag-4-link" href="tags/ubuntu/">Ubuntu</a><a class="tag-4-link" href="tags/next-tag/">next tag</a><a class="tag-4-link" href="tags/nodejs/">nodejs</a><a class="tag-4-link" href="tags/test/">test</a><a class="tag-4-link" href="tags/textlint/">textlint</a><a class="tag-4-link" href="tags/this-is-one-tag/">this is one tag</a><a class="tag-4-link" href="tags/ubuntu18-04/">ubuntu18.04</a><a class="tag-4-link" href="tags/タグ1/">タグ1</a><a class="tag-4-link" href="tags/テスト/">テスト</a><a class="tag-4-link" href="tags/機械学習/">機械学習</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="uk-container uk-container-small uk-text-center">
+        Created and owned by re1ven. Thanks to github and UIKit.
+    </div>
+</footer>
+</div>
+<div id="modal-center" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div>
+            <h2>Web Learning Logをフォローして最新情報をチェック！</h2>
+            <a class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" href="https://twitter.com/weblearninglog">Twitter</a>
+            <a class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" href="/atom.xml">RSS</a>
+        </div>
+        <small>画面外か、閉じるボタンをクリックすれば閉じれます。</small>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script src="/js/uikit.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.39/js/uikit-icons.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/venobox.css">
+<script src="/js/venobox.min.js"></script>
+<script src="/js/script.js"></script>
+<link rel="stylesheet" href="/css/highlight/styles/github.css">
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

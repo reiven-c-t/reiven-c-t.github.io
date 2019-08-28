@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    
+    <title>Ubuntu18.04のインストールメディアUSBをMacOS High Sierraで作る | Web Learning Log</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <meta name="description" content="必要なもの  USB2~4GB程度かそれ以上 ubuntu18.04のISOファイル    USBメモリをMacに接続する.今回私は8GBのUSBメモリーを使った. 何GBのUSBメモリを使ったのかを覚えておくと,USBメモリのノード確認の時のヒントになるので覚えておこう ディスクユーティリティーアプリを起動し,USBメモリを一応フォーマットしておく.   hdutilコマンドでubuntuのi">
+<meta name="keywords" content="ubuntu18.04,MacOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu18.04のインストールメディアUSBをMacOS High Sierraで作る">
+<meta property="og:url" content="http://reiven-c-t.github.io/Programming/ubuntu-18.04-usb-drive-mac.html">
+<meta property="og:site_name" content="Web Learning Log">
+<meta property="og:description" content="必要なもの  USB2~4GB程度かそれ以上 ubuntu18.04のISOファイル    USBメモリをMacに接続する.今回私は8GBのUSBメモリーを使った. 何GBのUSBメモリを使ったのかを覚えておくと,USBメモリのノード確認の時のヒントになるので覚えておこう ディスクユーティリティーアプリを起動し,USBメモリを一応フォーマットしておく.   hdutilコマンドでubuntuのi">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="http://reiven-c-t.github.io/images/ubuntu18.04/Ubuntu-18.04-Desktop.jpg">
+<meta property="og:updated_time" content="2018-10-06T08:20:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu18.04のインストールメディアUSBをMacOS High Sierraで作る">
+<meta name="twitter:description" content="必要なもの  USB2~4GB程度かそれ以上 ubuntu18.04のISOファイル    USBメモリをMacに接続する.今回私は8GBのUSBメモリーを使った. 何GBのUSBメモリを使ったのかを覚えておくと,USBメモリのノード確認の時のヒントになるので覚えておこう ディスクユーティリティーアプリを起動し,USBメモリを一応フォーマットしておく.   hdutilコマンドでubuntuのi">
+<meta name="twitter:image" content="http://reiven-c-t.github.io/images/ubuntu18.04/Ubuntu-18.04-Desktop.jpg">
+    
+    
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125864003-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-125864003-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="wrap">
+    <!-- BEGIN: navigation -->
+<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky" id="navigation">
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left logo"><a href="/">Web Learning Log</a></div>
+        <div class="uk-navbar-right">
+            <a class="uk-navbar-toggle" href="index.html#" uk-toggle="target: #offcanvas-usage">
+                <img id="menu-icon" src="/img/menu.gif">
+            </a>
+        </div>
+    </nav>
+
+
+    <div class="uk-offcanvas-content">
+
+        <div id="offcanvas-usage" uk-offcanvas="flip: true">
+            <div class="uk-offcanvas-bar">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                <h3>Category</h3>
+                <ul class="uk-list uk-list-divider-list"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/programming/">Programming</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/parent/">parent</a><ul class="uk-list uk-list-divider-list-child"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/parent/child/">child</a></li></ul></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/short/">short</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/test/">test</a></li></ul>
+                <hr/>
+                <h3>ToC</h3>
+                <div id="nav-toc"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- END: navigation -->
+    <!-- BEGIN: main content -->
+
+
+
+<div class="uk-height-large uk-background-cover uk-light uk-flex uk-background-blend-darken uk-background-secondary"
+     uk-parallax="bgy: -200" style="background-image: url('/images/ubuntu18.04/Ubuntu-18.04-Desktop.jpg');" id="article-header">
+
+    <div class="uk-text-center uk-margin-auto uk-margin-auto-vertical">
+        <h1>Ubuntu18.04のインストールメディアUSBをMacOS High Sierraで作る</h1>
+        <hr class="uk-divider-small">
+        <ul class="uk-breadcrumb uk-text-small uk-flex-center">
+            <li><a href="/">Top</a></li>
+            
+            <li><a href="/../categories/programming/" class="uk-button uk-button-text">Programming</a></li>
+            
+            <li><a href="../Programming/ubuntu-18.04-usb-drive-mac.html">Ubuntu18.04のインストールメディアUSBをMacOS High Sierraで作る</a></li>
+        </ul>
+    </div>
+</div>
+
+<main class="main" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="tm-sidebar-left uk-visible@m uk-overflow-auto"
+         uk-sticky="top: #article-header; bottom: #article; offset:80;" id="content-nav">
+    </div>
+    <div class="uk-background-muted uk-container uk-container-small tm-main">
+        <article class="uk-margin-medium-top" id="article">
+            <ul>
+<li>必要なもの
+<ul>
+<li>USB2~4GB程度かそれ以上</li>
+<li>ubuntu18.04のISOファイル</li>
+</ul>
+</li>
+</ul>
+<p>USBメモリをMacに接続する.今回私は8GBのUSBメモリーを使った.</p>
+<p><strong>何GBのUSBメモリを使ったのかを覚えておくと,USBメモリのノード確認の時のヒントになるので覚えておこう</strong></p>
+<p>ディスクユーティリティーアプリを起動し,USBメモリを一応フォーマットしておく.</p>
+<img src="/images/ubuntu18.04/usb-drive-choice.jpg" alt="ディスクユーティリティーでusbを選択">
+<img src="/images/ubuntu18.04/usb-format.jpg" alt="ディスクユーティリティーでusbをフォーマット">
+<p>hdutilコマンドでubuntuのisoファイル(ubuntu-18.04.1-desktop-amd64.iso)をimgファイルに変換.</p>
+<pre><code class="language-bash">hdiutil convert -format UDRW -o /path/to/img_version.img /path/to/ubuntu-18.04.1-desktop-amd64.iso
+</code></pre>
+<img src="/images/ubuntu18.04/ubuntu-img-command.jpg" alt="ubuntu18.04のisoファイルからimgファイルを作成">
+<img src="/images/ubuntu18.04/ubuntu-img-done.jpg" alt="ubuntu18.04のisoファイルからimgファイルを作成">
+<p>実行後,上の例だと,<code>img_version.img.dmg</code>というファイルが作成されるので,不要な拡張子<code>.dmg</code>を適宜消す.<code>mv</code>とか<code>cp</code>コマンドとかでも良いが普通にfinderでやってもよい.</p>
+<p><code>diskutil list</code>で使用するUSBメモリのノード<code>/dev/disk{数字}</code>を確認する.
+私の場合は<code>/dev/disk2</code>です.</p>
+<img src="/images/ubuntu18.04/confirm-usb-node.jpg" alt="インストールメディアを確認">
+<p><code>diskutil unMountDisk /dev/disk{数字}</code>を実行し,USBメモリをアンマウントし,
+<code>sudo dd if=/path/to/img_version.img of=/dev/rdisk{数字} bs=1m</code>を実行する.</p>
+<img src="/images/ubuntu18.04/create-ubuntu-usb-install-media.jpg" alt="実行完了">
+<p>実行が無事終わればubuntu18.04のUSBインストールメディアの作成に成功している.</p>
+<h4><span id="can-kao-zi-liao">参考資料</span><a href="#can-kao-zi-liao" class="header-anchor"></a></h4>
+<ul>
+<li><a href="https://qiita.com/kpkpkp/items/6664a1dba97198b984ec" target="_blank" rel="noopener">https://qiita.com/kpkpkp/items/6664a1dba97198b984ec</a> (ほぼ内容は一緒だけど18.04の検証がなかったので追加したというね)</li>
+</ul>
+
+        </article>
+    </div>
+    </div>
+
+    <hr class="uk-divider-icon">
+    <div class="uk-background-muted uk-container uk-container-small">
+        <aside class="" id="article-footer">
+            <div class="meta uk-margin-medium-bottom">
+                <ul class="uk-list uk-text-small">
+                    <li>Created at:
+                        <time datetime="2018-09-15T11:14:45.000Z"
+                              itemprop="datePublished">2018-09-15</time>
+                    </li>
+                    <li>
+                        Updated at:
+                        <time datetime="2018-10-06T08:20:10.000Z"
+                              itemprop="datePublished">2018-09-15</time>
+                    </li>
+                    
+                    <li>Category:
+                        
+                        <span itemprop="keywords">
+                        <a href="/../categories/programming/" class="" rel="tag">Programming</a>
+                            </span>
+                        
+                        
+                        
+                    <li>Tag:
+                        
+                        <span itemprop="keywords">
+                        <a href="/../tags/ubuntu18-04/" class="" rel="tag">ubuntu18.04</a>
+                        </span>
+                        
+                        <span itemprop="keywords">
+                        <a href="/../tags/macos/" class="" rel="tag">MacOS</a>
+                        </span>
+                        
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="meta uk-margin-medium-bottom uk-text-center">
+                <a href="https://twitter.com/share?url=../programming/ubuntu18.04-usb-media-with-mac.html"
+                   class="uk-icon-button" uk-icon="icon: twitter"></a>
+                <a href="/atom.xml" class="uk-icon-button" uk-icon="icon: rss"></a>
+            </div>
+
+            <div class="meta uk-margin-medium-bottom">
+                <div class="uk-child-width-1-2@s  uk-light" uk-grid>
+                </div>
+            </div>
+            
+        </aside>
+    </div>
+
+
+</main>
+<!-- END: main content -->
+    <footer class="footer uk-light uk-background-secondary">
+    <div class="uk-container uk-container-small">
+        <div class="uk-child-width-1-3@s uk-margin-top uk-column-grid uk-grid-divider" uk-grid>
+            <div>
+                <h3>About me</h3>
+                <p>
+                    機械学習の勉強をしている大学生です。 Web制作も趣味でやってます。
+                    2017年秋から1年、アメリカでコンピュータサイエンスを勉強してきます。
+                </p>
+            </div>
+            <div>
+                <h3>Category</h3>
+                <ul class="uk-list uk-list-divider-list"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/programming/">Programming</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/parent/">parent</a><ul class="uk-list uk-list-divider-list-child"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/parent/child/">child</a></li></ul></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/short/">short</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/test/">test</a></li></ul>
+                <hr/>
+                <div class="uk-margin-medium-bottom"></div>
+
+                
+                <h3>Archive</h3>
+                <div class="widget">
+                    <ul class="uk-list uk-list-divider-list"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="archives/2018/12/">12月 2018</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="archives/2018/10/">10月 2018</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="archives/2018/09/">9月 2018</a></li></ul>
+                </div>
+                
+            </div>
+            <div>
+                <h3>タグクラウド</h3>
+                <div class="tag-cloud">
+                <a class="tag-4-link" href="tags/anaconda/">Anaconda</a><a class="tag-4-link" href="tags/gpu/">GPU</a><a class="tag-4-link" href="tags/homebrew/">Homebrew</a><a class="tag-4-link" href="tags/javascript/">JavaScript</a><a class="tag-4-link" href="tags/macos/">MacOS</a><a class="tag-4-link" href="tags/node-js/">Node.js</a><a class="tag-4-link" href="tags/python/">Python</a><a class="tag-4-link" href="tags/python3/">Python3</a><a class="tag-4-link" href="tags/tensorflow/">Tensorflow</a><a class="tag-4-link" href="tags/ubuntu/">Ubuntu</a><a class="tag-4-link" href="tags/next-tag/">next tag</a><a class="tag-4-link" href="tags/nodejs/">nodejs</a><a class="tag-4-link" href="tags/test/">test</a><a class="tag-4-link" href="tags/textlint/">textlint</a><a class="tag-4-link" href="tags/this-is-one-tag/">this is one tag</a><a class="tag-4-link" href="tags/ubuntu18-04/">ubuntu18.04</a><a class="tag-4-link" href="tags/タグ1/">タグ1</a><a class="tag-4-link" href="tags/テスト/">テスト</a><a class="tag-4-link" href="tags/機械学習/">機械学習</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="uk-container uk-container-small uk-text-center">
+        Created and owned by re1ven. Thanks to github and UIKit.
+    </div>
+</footer>
+</div>
+<div id="modal-center" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div>
+            <h2>Web Learning Logをフォローして最新情報をチェック！</h2>
+            <a class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" href="https://twitter.com/weblearninglog">Twitter</a>
+            <a class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" href="/atom.xml">RSS</a>
+        </div>
+        <small>画面外か、閉じるボタンをクリックすれば閉じれます。</small>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script src="/js/uikit.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.39/js/uikit-icons.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/venobox.css">
+<script src="/js/venobox.min.js"></script>
+<script src="/js/script.js"></script>
+<link rel="stylesheet" href="/css/highlight/styles/github.css">
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

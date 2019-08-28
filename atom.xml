@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Web Learning Log</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://reiven-c-t.github.io/"/>
+  <updated>2019-08-25T14:16:04.000Z</updated>
+  <id>http://reiven-c-t.github.io/</id>
+  
+  <author>
+    <name>Reiven</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://reiven-c-t.github.io//test/short-test.html"/>
+    <id>http://reiven-c-t.github.io//test/short-test.html</id>
+    <published>2018-12-01T02:31:47.000Z</published>
+    <updated>2019-08-25T14:16:04.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3&gt;&lt;span id=&quot;jie-guo&quot;&gt;結果&lt;/span&gt;&lt;a href=&quot;#jie-guo&quot; class=&quot;header-anchor&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th
+        
+      
+    
+    </summary>
+    
+      <category term="short" scheme="http://reiven-c-t.github.io/categories/short/"/>
+    
+    
+      <category term="test" scheme="http://reiven-c-t.github.io/tags/test/"/>
+    
+      <category term="テスト" scheme="http://reiven-c-t.github.io/tags/%E3%83%86%E3%82%B9%E3%83%88/"/>
+    
+      <category term="タグ1" scheme="http://reiven-c-t.github.io/tags/%E3%82%BF%E3%82%B01/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac OSにHomebrewをインストール&amp;アップデートする方法</title>
+    <link href="http://reiven-c-t.github.io//Programming/homebrew.html"/>
+    <id>http://reiven-c-t.github.io//Programming/homebrew.html</id>
+    <published>2018-10-06T08:13:33.000Z</published>
+    <updated>2018-10-06T08:13:33.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Mac OSでデファクトスタンダードと言っても過言ではない、パッケージ管理ツールであるHomebrewのインストール&amp;amp;アップデート方法をまとめて解説します。&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Programming" scheme="http://reiven-c-t.github.io/categories/programming/"/>
+    
+    
+      <category term="Homebrew" scheme="http://reiven-c-t.github.io/tags/homebrew/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac OSにNodebrewで必要なバージョンのNode.jsをインストール</title>
+    <link href="http://reiven-c-t.github.io//Programming/nodebrew.html"/>
+    <id>http://reiven-c-t.github.io//Programming/nodebrew.html</id>
+    <published>2018-10-06T06:10:40.000Z</published>
+    <updated>2018-12-01T02:31:47.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Mac OSで任意のバージョンのNode.jsをインストール&amp;amp;管理するNodebrewというツールの使い方をまとめました。&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Programming" scheme="http://reiven-c-t.github.io/categories/programming/"/>
+    
+    
+      <category term="Node.js" scheme="http://reiven-c-t.github.io/tags/node-js/"/>
+    
+      <category term="JavaScript" scheme="http://reiven-c-t.github.io/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>読みやすい文章を書くための日本語添削ツール導入 textlint編</title>
+    <link href="http://reiven-c-t.github.io//Programming/textlint.html"/>
+    <id>http://reiven-c-t.github.io//Programming/textlint.html</id>
+    <published>2018-10-05T13:08:03.000Z</published>
+    <updated>2018-10-06T08:13:33.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;技術系の論文や、ブログを書く際役に立つ、文章添削ツールtextlint10.0のMac OSへの導入方法を紹介します。
+この記事では、textlintを実際に使うまでの手順を紹介します。&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+&lt;!-- toc
+        
+      
+    
+    </summary>
+    
+      <category term="Programming" scheme="http://reiven-c-t.github.io/categories/programming/"/>
+    
+    
+      <category term="textlint" scheme="http://reiven-c-t.github.io/tags/textlint/"/>
+    
+      <category term="nodejs" scheme="http://reiven-c-t.github.io/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu18.04にCUDAとcuDNNをインストールしてpython3のTensorflowをGPUで動かす</title>
+    <link href="http://reiven-c-t.github.io//Programming/ubuntu-18.04-cuda-tensorflow.html"/>
+    <id>http://reiven-c-t.github.io//Programming/ubuntu-18.04-cuda-tensorflow.html</id>
+    <published>2018-09-29T12:40:29.000Z</published>
+    <updated>2018-10-06T08:20:10.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Ubuntu18.04でnVidia製のGPUをTensorflowで使えるようにするまでのレポートです。
+Ubuntu16.XXとか17.XXでは多くの記事がありますが、Ubuntu18では資料が少なかったので、まとめました。&lt;/p&gt;
+&lt;div
+        
+      
+    
+    </summary>
+    
+      <category term="Programming" scheme="http://reiven-c-t.github.io/categories/programming/"/>
+    
+    
+      <category term="ubuntu18.04" scheme="http://reiven-c-t.github.io/tags/ubuntu18-04/"/>
+    
+      <category term="MacOS" scheme="http://reiven-c-t.github.io/tags/macos/"/>
+    
+      <category term="Tensorflow" scheme="http://reiven-c-t.github.io/tags/tensorflow/"/>
+    
+      <category term="機械学習" scheme="http://reiven-c-t.github.io/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/"/>
+    
+      <category term="GPU" scheme="http://reiven-c-t.github.io/tags/gpu/"/>
+    
+      <category term="Anaconda" scheme="http://reiven-c-t.github.io/tags/anaconda/"/>
+    
+      <category term="Python3" scheme="http://reiven-c-t.github.io/tags/python3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UbuntuにコマンドラインのみでAnacondaをインストールする</title>
+    <link href="http://reiven-c-t.github.io//Programming/ubuntu-anaconda-only-commandline.html"/>
+    <id>http://reiven-c-t.github.io//Programming/ubuntu-anaconda-only-commandline.html</id>
+    <published>2018-09-17T10:34:53.000Z</published>
+    <updated>2018-09-17T10:52:02.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Ubuntu18.04にAnaconda5.2をGUIを使わずにCUI(コマンドライン)のみでインストールする方法です.&lt;/p&gt;
+&lt;div class=&quot;toc&quot;&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Programming" scheme="http://reiven-c-t.github.io/categories/programming/"/>
+    
+    
+      <category term="Anaconda" scheme="http://reiven-c-t.github.io/tags/anaconda/"/>
+    
+      <category term="Ubuntu" scheme="http://reiven-c-t.github.io/tags/ubuntu/"/>
+    
+      <category term="Python" scheme="http://reiven-c-t.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ブログの機能テスト</title>
+    <link href="http://reiven-c-t.github.io//Programming/test-function.html"/>
+    <id>http://reiven-c-t.github.io//Programming/test-function.html</id>
+    <published>2018-09-16T03:56:40.000Z</published>
+    <updated>2018-10-06T08:20:10.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;div class=&quot;toc&quot;&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#teburunotesuto&quot;&gt;テーブルのテスト&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Programming" scheme="http://reiven-c-t.github.io/categories/programming/"/>
+    
+    
+      <category term="this is one tag" scheme="http://reiven-c-t.github.io/tags/this-is-one-tag/"/>
+    
+      <category term="next tag" scheme="http://reiven-c-t.github.io/tags/next-tag/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu18.04のインストールメディアUSBをMacOS High Sierraで作る</title>
+    <link href="http://reiven-c-t.github.io//Programming/ubuntu-18.04-usb-drive-mac.html"/>
+    <id>http://reiven-c-t.github.io//Programming/ubuntu-18.04-usb-drive-mac.html</id>
+    <published>2018-09-15T11:14:45.000Z</published>
+    <updated>2018-10-06T08:20:10.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;必要なもの
+&lt;ul&gt;
+&lt;li&gt;USB2~4GB程度かそれ以上&lt;/li&gt;
+&lt;li&gt;ubuntu18.04のISOファイル&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;USBメモリをMacに接続する.今回私は8GBのUSBメモリーを使った.&lt;/p&gt;
+&lt;p&gt;&lt;
+        
+      
+    
+    </summary>
+    
+      <category term="Programming" scheme="http://reiven-c-t.github.io/categories/programming/"/>
+    
+    
+      <category term="ubuntu18.04" scheme="http://reiven-c-t.github.io/tags/ubuntu18-04/"/>
+    
+      <category term="MacOS" scheme="http://reiven-c-t.github.io/tags/macos/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://reiven-c-t.github.io//test/Hello-World-0.html"/>
+    <id>http://reiven-c-t.github.io//test/Hello-World-0.html</id>
+    <published>2018-09-14T12:27:28.000Z</published>
+    <updated>2018-09-16T05:36:52.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="parent" scheme="http://reiven-c-t.github.io/categories/parent/"/>
+    
+      <category term="child" scheme="http://reiven-c-t.github.io/categories/parent/child/"/>
+    
+    
+      <category term="test" scheme="http://reiven-c-t.github.io/tags/test/"/>
+    
+      <category term="テスト" scheme="http://reiven-c-t.github.io/tags/%E3%83%86%E3%82%B9%E3%83%88/"/>
+    
+      <category term="タグ1" scheme="http://reiven-c-t.github.io/tags/%E3%82%BF%E3%82%B01/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://reiven-c-t.github.io//test/Hello-World-1.html"/>
+    <id>http://reiven-c-t.github.io//test/Hello-World-1.html</id>
+    <published>2018-09-14T11:05:52.000Z</published>
+    <updated>2018-09-14T12:34:47.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="test" scheme="http://reiven-c-t.github.io/categories/test/"/>
+    
+    
+  </entry>
+  
+</feed>

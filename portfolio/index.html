@@ -1,0 +1,188 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico in the root directory -->
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.7/css/uikit.min.css"/>
+    <link rel="stylesheet" href="/portfolio/css/vertical-timeline/component.css">
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.7/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.7/js/uikit-icons.min.js"></script>
+
+
+    <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+<!--[if IE]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+
+<div id="wrapper">
+    <div class="uk-section uk-padding-remove-top uk-padding-remove-bottom" id="first-view">
+        <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;  uk-light; top: 200">
+
+            <nav class="uk-navbar-container">
+                <div class="uk-container uk-container-expand">
+                    <div uk-navbar>
+                        <div class="uk-navbar-center">
+                            <ul class="uk-navbar-nav" uk-scrollspy-nav="closest: li; scroll: true">
+                                <li class=""><a href="#first-view">About</a></li>
+                                <li class=""><a href="#education">Education</a></li>
+                                <li class=""><a href="#interest">ResearchInterest</a></li>
+                                <li class=""><a href="#publication-award">Publication, Award</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="uk-container-cover uk-background-primary uk-height-viewport" id="first-view-content">
+            <div class="uk-container">
+                <div uk-grid>
+                    <div class="uk-width-1-2@m uk-width-1-3@l">
+                        <h1>Akifumi Nakamachi</h1>
+                        <h2>大阪大学 情報科学研究科 鬼塚研究室</h2>
+                        <h3>修士課程1年</h3>
+                    </div>
+
+                    <div class="uk-width-1-2@m uk-width-2-3@l">
+                        <h4>Latest Publication</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="uk-section uk-padding-remove-top uk-padding-remove-bottom" id="education">
+        <div class="uk-container-cover uk-background-secondary uk-height-viewport">
+            <div class="uk-container">
+                <div uk-grid>
+                    <!-- TODO: change base https://codepen.io/alanhouser/pen/aErrQJ
+                    https://freefrontend.com/css-timelines/ -->
+                    <div class="uk-width-2-3@m">
+                        <ul class="cbp_tmtimeline">
+                            <li>
+                                <span>2015/04/01-2019/03/31</span>
+                                <div class="cbp_tmlabel">
+                                    <h2>広島大学 総合科学部 総合科学科</h2>
+                                    <p>広島大学大学院工学研究科情報工学専攻: パターン認識 栗田・宮尾研究室</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span>2017/09/01-2018/05/15</span>
+                                <div class="cbp_tmlabel">
+                                    <h2>University of Minnesota, College of Science and Engineering, Department of
+                                        Computer Science</h2>
+                                    <p>Movie Lens Laboratory</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span>2019/04/01-</span>
+                                <div class="cbp_tmlabel">
+                                    <h2>大阪大学 情報科学研究科</h2>
+                                    <p>ビッグデータ工学研究室</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- TODO: hide in small screen -->
+                    <!-- TODO: dynamic image -->
+                    <div class="uk-width-1-3@m"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="uk-section uk-padding-remove-top uk-padding-remove-bottom" id="interest">
+        <div class="uk-container-cover uk-background-primary uk-height-viewport">
+            <div class="uk-container">
+                <h2>Research Interest</h2>
+
+                <div class="uk-child-width-1-3@m uk-child-width-1-2@s uk-grid-small uk-grid-match"
+                     uk-scrollspy="target: .research-interest-card; cls: uk-animation-fade; delay: 200" uk-grid>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body research-interest-card">
+                            <h3 class="uk-card-title">Default</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-primary uk-card-body research-interest-card">
+                            <h3 class="uk-card-title">Primary</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-secondary uk-card-body research-interest-card">
+                            <h3 class="uk-card-title">Secondary</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body research-interest-card">
+                            <h3 class="uk-card-title">Default</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-primary uk-card-body research-interest-card">
+                            <h3 class="uk-card-title">Primary</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-secondary uk-card-body research-interest-card">
+                            <h3 class="uk-card-title">Secondary</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="uk-section uk-padding-remove-top uk-padding-remove-bottom" id="publication-award">
+        <div class="uk-container-cover uk-background-default uk-height-viewport">
+            <div class="uk-container">
+                <h2>Publication, Award</h2>
+
+            </div>
+        </div>
+    </div>
+
+    <nav class="uk-navbar-container">
+        <div class="uk-container uk-container-expand">
+            <div uk-navbar>
+                <div class="uk-navbar-center">
+                    <ul class="uk-navbar-nav" uk-scrollspy-nav="closest: li; scroll: true">
+                        <li class=""><a href="#first-view">About</a></li>
+                        <li class=""><a href="#education">Education</a></li>
+                        <li class=""><a href="#interest">ResearchInterest</a></li>
+                        <li class=""><a href="#publication-award">Publication, Award</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+    // window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    // ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+</script>
+<!--<script src="https://www.google-analytics.com/analytics.js" async></script>-->
+</body>
+
+</html>

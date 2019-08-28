@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    
+    <title>UbuntuにコマンドラインのみでAnacondaをインストールする | Web Learning Log</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <meta name="description" content="Ubuntu18.04にAnaconda5.2をGUIを使わずにCUI(コマンドライン)のみでインストールする方法です.    なぜにコマンドラインOnly? AnacondaをUbuntuの真っ黒な画面のみで入れる方法 まとめ  別解      なぜにコマンドラインOnly? AnacondaをUbuntuにインストールする方法を紹介したコンテンツは世の中に腐るほどあります.  Anaconda">
+<meta name="keywords" content="Anaconda,Ubuntu,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UbuntuにコマンドラインのみでAnacondaをインストールする">
+<meta property="og:url" content="http://reiven-c-t.github.io/Programming/ubuntu-anaconda-only-commandline.html">
+<meta property="og:site_name" content="Web Learning Log">
+<meta property="og:description" content="Ubuntu18.04にAnaconda5.2をGUIを使わずにCUI(コマンドライン)のみでインストールする方法です.    なぜにコマンドラインOnly? AnacondaをUbuntuの真っ黒な画面のみで入れる方法 まとめ  別解      なぜにコマンドラインOnly? AnacondaをUbuntuにインストールする方法を紹介したコンテンツは世の中に腐るほどあります.  Anaconda">
+<meta property="og:locale" content="ja">
+<meta property="og:image" content="http://reiven-c-t.github.io/images/Anaconda-only-cui/featured_image.jpg">
+<meta property="og:updated_time" content="2018-09-17T10:52:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UbuntuにコマンドラインのみでAnacondaをインストールする">
+<meta name="twitter:description" content="Ubuntu18.04にAnaconda5.2をGUIを使わずにCUI(コマンドライン)のみでインストールする方法です.    なぜにコマンドラインOnly? AnacondaをUbuntuの真っ黒な画面のみで入れる方法 まとめ  別解      なぜにコマンドラインOnly? AnacondaをUbuntuにインストールする方法を紹介したコンテンツは世の中に腐るほどあります.  Anaconda">
+<meta name="twitter:image" content="http://reiven-c-t.github.io/images/Anaconda-only-cui/featured_image.jpg">
+    
+    
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125864003-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-125864003-1');
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="wrap">
+    <!-- BEGIN: navigation -->
+<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky" id="navigation">
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left logo"><a href="/">Web Learning Log</a></div>
+        <div class="uk-navbar-right">
+            <a class="uk-navbar-toggle" href="index.html#" uk-toggle="target: #offcanvas-usage">
+                <img id="menu-icon" src="/img/menu.gif">
+            </a>
+        </div>
+    </nav>
+
+
+    <div class="uk-offcanvas-content">
+
+        <div id="offcanvas-usage" uk-offcanvas="flip: true">
+            <div class="uk-offcanvas-bar">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                <h3>Category</h3>
+                <ul class="uk-list uk-list-divider-list"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/programming/">Programming</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/parent/">parent</a><ul class="uk-list uk-list-divider-list-child"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/parent/child/">child</a></li></ul></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/short/">short</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/test/">test</a></li></ul>
+                <hr/>
+                <h3>ToC</h3>
+                <div id="nav-toc"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- END: navigation -->
+    <!-- BEGIN: main content -->
+
+
+
+<div class="uk-height-large uk-background-cover uk-light uk-flex uk-background-blend-darken uk-background-secondary"
+     uk-parallax="bgy: -200" style="background-image: url('/images/Anaconda-only-cui/featured_image.jpg');" id="article-header">
+
+    <div class="uk-text-center uk-margin-auto uk-margin-auto-vertical">
+        <h1>UbuntuにコマンドラインのみでAnacondaをインストールする</h1>
+        <hr class="uk-divider-small">
+        <ul class="uk-breadcrumb uk-text-small uk-flex-center">
+            <li><a href="/">Top</a></li>
+            
+            <li><a href="/../categories/programming/" class="uk-button uk-button-text">Programming</a></li>
+            
+            <li><a href="../Programming/ubuntu-anaconda-only-commandline.html">UbuntuにコマンドラインのみでAnacondaをインストールする</a></li>
+        </ul>
+    </div>
+</div>
+
+<main class="main" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="tm-sidebar-left uk-visible@m uk-overflow-auto"
+         uk-sticky="top: #article-header; bottom: #article; offset:80;" id="content-nav">
+    </div>
+    <div class="uk-background-muted uk-container uk-container-small tm-main">
+        <article class="uk-margin-medium-top" id="article">
+            <p>Ubuntu18.04にAnaconda5.2をGUIを使わずにCUI(コマンドライン)のみでインストールする方法です.</p>
+<div class="toc">
+<!-- toc -->
+<ul>
+<li><a href="#nazenikomandorainonly">なぜにコマンドラインOnly?</a></li>
+<li><a href="#anacondawoubuntunozhen-tuhei-nahua-mian-nomideru-rerufang-fa">AnacondaをUbuntuの真っ黒な画面のみで入れる方法</a></li>
+<li><a href="#matome">まとめ</a>
+<ul>
+<li><a href="#bie-jie">別解</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+<h3><span id="nazenikomandorainonly">なぜにコマンドラインOnly?</span><a href="#nazenikomandorainonly" class="header-anchor"></a></h3>
+<p>AnacondaをUbuntuにインストールする方法を紹介したコンテンツは世の中に腐るほどあります.</p>
+<ul>
+<li><a href="https://pythondatascience.plavox.info/python%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/anaconda-ubuntu-linux" target="_blank" rel="noopener">Anaconda を利用した Python のインストール (Ubuntu Linux)</a></li>
+<li><a href="http://kconcon3.hatenablog.com/entry/2017/12/13/102704" target="_blank" rel="noopener">AnacondaをUbuntu16.04にインストール</a></li>
+<li><a href="http://kuro-rera.hatenablog.com/entry/2018/02/04/195136" target="_blank" rel="noopener">LinuxにPython3とAnacondaをインストール</a></li>
+</ul>
+<p>ってか,普通にAnacondaのダウンロードページからlinuxのインストールスクリプトをダウンロードボタンを押してDLして
+あとコマンドラインでスクリプトを実行すればいいだけです.</p>
+<a href="https://www.anaconda.com/download/#linux" class="link-preview" target="_blank" rel="nofollow"><div class="link-area"><div class="og-image"><img src="https://www.anaconda.com/wp-content/uploads/2018/11/distro-01-1.png"></div><div class="descriptions"><div class="og-title">Anaconda Python/R Distribution - Free Download</div><div class="og-description">Anaconda Distribution is the world's most popular Python data science platform. Download the free version to access over 1500 data science p…</div></div></div></a>
+<p>しかし,世の中にはGUI環境がどうしても使えないってことがよくあるんじゃぁ.
+あるいはLinuxとかいうギークなツールでGUIとか使いたくないんじゃぁ.みたいな人も稀におります.</p>
+<p>私も,研究室にあるssh only(VNCとかその他GUI使えない系)なサーバにAnacondaを入れなきゃいけなかったので,その時に考えた方法を紹介します.
+ってか,それ以外にもAWSとかのクラウドGPU環境での機械学習環境をフルスクラッチで作成するとかいうときにも使えると思います.
+<small>まぁAWSとかならAnaconda入ったインスタンスとかあると思うけどさ.</small></p>
+<h3><span id="anacondawoubuntunozhen-tuhei-nahua-mian-nomideru-rerufang-fa">AnacondaをUbuntuの真っ黒な画面のみで入れる方法</span><a href="#anacondawoubuntunozhen-tuhei-nahua-mian-nomideru-rerufang-fa" class="header-anchor"></a></h3>
+<p>まず,<code>curl</code>コマンドは使えるものとします.</p>
+<p><code>wget</code>でもいいですが私は<code>curl</code>おじさんなので<code>curl</code>でお願いします.
+なければ</p>
+<pre><code class="language-bash">sudo apt-get install curl
+</code></pre>
+<p>などで適宜curlを入れてねん.</p>
+<p>ちなみに<code>curl</code>とか,<code>wget</code>とかは賢明な読者諸君はすでにご存知だと思うが,そうでない読者のために一言で言うと,
+真っ黒画面でweb(http)のやり取りするやつよん.</p>
+<p>さて,フォルダを汚したくないので,適当に<code>mkdir anaconda_installation</code>とか言う感じでフォルダを作っておいて,
+<code>cd anaconda_installation</code>でディレクトリを移動しておきます.</p>
+<p>ここからが肝です.</p>
+<pre><code class="language-bash">curl -O https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
+</code></pre>
+<p>で,Anacondaのインストールコマンドをcurlコマンドで(真っ黒画面で)ダウンロードします.
+<code>-O</code>は英語のオーのオー文字だよん。数字のゼロではないです。</p>
+<p>なお,将来的にバージョンが変わった時のことを考えて補足します.</p>
+<p><a href="https://www.anaconda.com/download/#linux" target="_blank" rel="noopener">AnacondaのLinux向けインストーラダウンロードサイト</a>のDownloadボタンのリンクを
+<code>curl -O</code>の後に書けば,フォルダ内に,インストーラのコマンドファイルがダウンロードされるって事です.</p>
+<img src="/images/Anaconda-only-cui/Anaconda-commandline.jpg" alt="AnacondaのLinuxインストーラのurlを確認">
+<img src="/images/Anaconda-only-cui/Anaconda-link.jpg" alt="AnacondaのLinuxインストーラのurlを確認">
+<p>それだけ.</p>
+<p>後は,上で紹介したようなサイトと同様に,インストーラのコマンドファイルに<code>chmod +x Anaconda3-5.2.0-Linux-x86_64.sh</code>で実行権限を与えた後,
+<code>./Anaconda3-5.2.0-Linux-x86_64.sh</code>で実行して,なんか言われるがままに操作していけばおしまいです.</p>
+<h3><span id="matome">まとめ</span><a href="#matome" class="header-anchor"></a></h3>
+<p>ここまでの手順をまとめます.</p>
+<pre><code class="language-bash">sudo apt-get install curl; # curlがない場合
+mkdir anaconda_installation; # インストールのためのフォルダ作成
+curl -O https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh;
+chmod +x https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh;
+./Anaconda3-5.2.0-Linux-x86_64.sh;
+</code></pre>
+<p>後は,利用規約の説明をEnter連打で進めて,規約にyes.
+anacondaのインストール場所を聞かれるので,ここは空白でEnter.</p>
+<pre><code>Anaconda3 will now be installed into this location:
+/home/{Username}/anaconda3
+
+  - Press ENTER to confirm the location
+  - Press CTRL-C to abort the installation
+  - Or specify a different location below
+
+[/home/{Username}/anaconda3] &gt;&gt;&gt;
+</code></pre>
+<p>パスを追加してもいいか聞かれるので,ここもyesしてEnter.</p>
+<pre><code>Do you wish the installer to prepend the Anaconda3 install location
+to PATH in your /home/ユーザ名/.bashrc ? [yes|no]
+[no] &gt;&gt;&gt; yes
+</code></pre>
+<p>VS Codeインストールしていいか聞かれるから,ここは<strong>No</strong>!
+Noと言える日本人の私であった.</p>
+<h4><span id="bie-jie">別解</span><a href="#bie-jie" class="header-anchor"></a></h4>
+<p>とにかくLinuxのインストーラshellファイルを真っ黒画面onlyなサーバ上に入れればいいんだから,
+適当なPCでLinux用ファイルをGUIからダウンロードしてftpで送るなり,USBメモリ使って移すなりすればいいと言えばいい.</p>
+<p>ただし,インストーラファイルはでかいんじゃぁ(約500MB).</p>
+
+        </article>
+    </div>
+    </div>
+
+    <hr class="uk-divider-icon">
+    <div class="uk-background-muted uk-container uk-container-small">
+        <aside class="" id="article-footer">
+            <div class="meta uk-margin-medium-bottom">
+                <ul class="uk-list uk-text-small">
+                    <li>Created at:
+                        <time datetime="2018-09-17T10:34:53.000Z"
+                              itemprop="datePublished">2018-09-17</time>
+                    </li>
+                    <li>
+                        Updated at:
+                        <time datetime="2018-09-17T10:52:02.000Z"
+                              itemprop="datePublished">2018-09-17</time>
+                    </li>
+                    
+                    <li>Category:
+                        
+                        <span itemprop="keywords">
+                        <a href="/../categories/programming/" class="" rel="tag">Programming</a>
+                            </span>
+                        
+                        
+                        
+                    <li>Tag:
+                        
+                        <span itemprop="keywords">
+                        <a href="/../tags/anaconda/" class="" rel="tag">Anaconda</a>
+                        </span>
+                        
+                        <span itemprop="keywords">
+                        <a href="/../tags/ubuntu/" class="" rel="tag">Ubuntu</a>
+                        </span>
+                        
+                        <span itemprop="keywords">
+                        <a href="/../tags/python/" class="" rel="tag">Python</a>
+                        </span>
+                        
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="meta uk-margin-medium-bottom uk-text-center">
+                <a href="https://twitter.com/share?url=../programming/ubuntu18.04-usb-media-with-mac.html"
+                   class="uk-icon-button" uk-icon="icon: twitter"></a>
+                <a href="/atom.xml" class="uk-icon-button" uk-icon="icon: rss"></a>
+            </div>
+
+            <div class="meta uk-margin-medium-bottom">
+                <div class="uk-child-width-1-2@s  uk-light" uk-grid>
+                </div>
+            </div>
+            
+            <section id="comments">
+                <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered
+                            by Disqus.</a></noscript>
+                </div>
+            </section>
+            
+            <script>
+                var disqus_shortname = 'web-learning-log';
+                
+                var disqus_url = 'http://reiven-c-t.github.io/Programming/ubuntu-anaconda-only-commandline.html';
+                
+                (function () {
+                    var dsq = document.createElement('script');
+                    dsq.type = 'text/javascript';
+                    dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            
+            
+        </aside>
+    </div>
+
+
+</main>
+<!-- END: main content -->
+    <footer class="footer uk-light uk-background-secondary">
+    <div class="uk-container uk-container-small">
+        <div class="uk-child-width-1-3@s uk-margin-top uk-column-grid uk-grid-divider" uk-grid>
+            <div>
+                <h3>About me</h3>
+                <p>
+                    機械学習の勉強をしている大学生です。 Web制作も趣味でやってます。
+                    2017年秋から1年、アメリカでコンピュータサイエンスを勉強してきます。
+                </p>
+            </div>
+            <div>
+                <h3>Category</h3>
+                <ul class="uk-list uk-list-divider-list"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/programming/">Programming</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/parent/">parent</a><ul class="uk-list uk-list-divider-list-child"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/parent/child/">child</a></li></ul></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/short/">short</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="categories/test/">test</a></li></ul>
+                <hr/>
+                <div class="uk-margin-medium-bottom"></div>
+
+                
+                <h3>Archive</h3>
+                <div class="widget">
+                    <ul class="uk-list uk-list-divider-list"><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="archives/2018/12/">12月 2018</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="archives/2018/10/">10月 2018</a></li><li class="uk-list uk-list-divider-list-item"><a class="uk-list uk-list-divider-list-link" href="archives/2018/09/">9月 2018</a></li></ul>
+                </div>
+                
+            </div>
+            <div>
+                <h3>タグクラウド</h3>
+                <div class="tag-cloud">
+                <a class="tag-4-link" href="tags/anaconda/">Anaconda</a><a class="tag-4-link" href="tags/gpu/">GPU</a><a class="tag-4-link" href="tags/homebrew/">Homebrew</a><a class="tag-4-link" href="tags/javascript/">JavaScript</a><a class="tag-4-link" href="tags/macos/">MacOS</a><a class="tag-4-link" href="tags/node-js/">Node.js</a><a class="tag-4-link" href="tags/python/">Python</a><a class="tag-4-link" href="tags/python3/">Python3</a><a class="tag-4-link" href="tags/tensorflow/">Tensorflow</a><a class="tag-4-link" href="tags/ubuntu/">Ubuntu</a><a class="tag-4-link" href="tags/next-tag/">next tag</a><a class="tag-4-link" href="tags/nodejs/">nodejs</a><a class="tag-4-link" href="tags/test/">test</a><a class="tag-4-link" href="tags/textlint/">textlint</a><a class="tag-4-link" href="tags/this-is-one-tag/">this is one tag</a><a class="tag-4-link" href="tags/ubuntu18-04/">ubuntu18.04</a><a class="tag-4-link" href="tags/タグ1/">タグ1</a><a class="tag-4-link" href="tags/テスト/">テスト</a><a class="tag-4-link" href="tags/機械学習/">機械学習</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="uk-container uk-container-small uk-text-center">
+        Created and owned by re1ven. Thanks to github and UIKit.
+    </div>
+</footer>
+</div>
+<div id="modal-center" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div>
+            <h2>Web Learning Logをフォローして最新情報をチェック！</h2>
+            <a class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" href="https://twitter.com/weblearninglog">Twitter</a>
+            <a class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" href="/atom.xml">RSS</a>
+        </div>
+        <small>画面外か、閉じるボタンをクリックすれば閉じれます。</small>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script src="/js/uikit.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.39/js/uikit-icons.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/venobox.css">
+<script src="/js/venobox.min.js"></script>
+<script src="/js/script.js"></script>
+<link rel="stylesheet" href="/css/highlight/styles/github.css">
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
