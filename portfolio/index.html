@@ -27,8 +27,8 @@
 
 
 <div id="wrapper">
-    <div class="uk-section uk-padding-remove-top uk-padding-remove-bottom" id="first-view">
-        <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;  uk-light; top: 200">
+    <div class="uk-section uk-padding-remove-top uk-padding-remove-bottom uk-height-viewport" id="first-view">
+        <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;  uk-light; top: 200; cls-inactive: uk-hidden;">
 
             <nav class="uk-navbar-container">
                 <div class="uk-container uk-container-expand">
@@ -46,23 +46,27 @@
             </nav>
         </div>
 
-        <div class="uk-container-cover uk-background-primary uk-height-viewport" id="first-view-content">
-            <div class="uk-container">
-                <div uk-grid>
-                    <div class="uk-width-1-2@m uk-width-1-3@l">
+        <div class="uk-container-cover uk-background-primary" id="first-view-content">
+            <div class="uk-container-expand uk-height-1-1">
+                <div uk-grid class="uk-height-1-1">
+                    <div class="uk-width-1-2@m uk-width-1-3@l uk-height1-1">
+                        <div class="uk-margin-large-left uk-margin-right">
                         <h1>Akifumi Nakamachi</h1>
                         <h2>大阪大学 情報科学研究科 鬼塚研究室</h2>
                         <h3>修士課程1年</h3>
                         <h3>Portfolioページ(このページ)は制作途中です.ごめんなさい</h3>
-                    </div>
-
-                    <div class="uk-width-1-2@m uk-width-2-3@l">
                         <h4>Latest Publication</h4>
                         <ul>
                             <li>
                                 中町礼文, 梶原智之, 荒瀬由紀. 強化学習を用いた難易度制御可能なテキスト平易化. NLP若手の会第14回シンポジウム, P14. August 2019. [<a href="/portfolio/poster_YANS.pdf">Poster</a>]
                             </li>
                         </ul>
+                        </div>
+                    </div>
+
+                    <div class="uk-width-1-2@m uk-width-2-3@l uk-visible@m uk-height-viewport">
+                        <img src="/portfolio/img/selfie-large.png" style="width:100%; height:100%;" class="uk-visible@l">
+                        <img src="/portfolio/img/selfie-medium.png" style="width:100%;height:100%;" class="uk-visible@m uk-hidden@l">
                     </div>
                 </div>
             </div>

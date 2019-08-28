@@ -171,13 +171,13 @@ Ubuntu16.XXとか17.XXでは多くの記事がありますが、Ubuntu18では�
     
       <category term="MacOS" scheme="http://reiven-c-t.github.io/tags/macos/"/>
     
-      <category term="Anaconda" scheme="http://reiven-c-t.github.io/tags/anaconda/"/>
-    
       <category term="Tensorflow" scheme="http://reiven-c-t.github.io/tags/tensorflow/"/>
     
       <category term="機械学習" scheme="http://reiven-c-t.github.io/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/"/>
     
       <category term="GPU" scheme="http://reiven-c-t.github.io/tags/gpu/"/>
+    
+      <category term="Anaconda" scheme="http://reiven-c-t.github.io/tags/anaconda/"/>
     
       <category term="Python3" scheme="http://reiven-c-t.github.io/tags/python3/"/>
     
@@ -209,9 +209,9 @@ Ubuntu16.XXとか17.XXでは多くの記事がありますが、Ubuntu18では�
       <category term="Programming" scheme="http://reiven-c-t.github.io/categories/programming/"/>
     
     
-      <category term="Ubuntu" scheme="http://reiven-c-t.github.io/tags/ubuntu/"/>
-    
       <category term="Anaconda" scheme="http://reiven-c-t.github.io/tags/anaconda/"/>
+    
+      <category term="Ubuntu" scheme="http://reiven-c-t.github.io/tags/ubuntu/"/>
     
       <category term="Python" scheme="http://reiven-c-t.github.io/tags/python/"/>
     
