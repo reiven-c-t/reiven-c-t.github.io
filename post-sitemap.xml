@@ -31,14 +31,6 @@
     </url>
 
     <url>
-        <loc>http://reiven-c-t.github.io/Programming/ubuntu-18.04-cuda-tensorflow.html</loc>
-        <lastmod>2018-10-06T08:20:10.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://reiven-c-t.github.io/Programming/ubuntu-18.04-usb-drive-mac.html</loc>
         <lastmod>2018-10-06T08:20:10.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -47,8 +39,8 @@
     </url>
 
     <url>
-        <loc>http://reiven-c-t.github.io/Programming/textlint.html</loc>
-        <lastmod>2018-10-06T08:13:33.000Z</lastmod>
+        <loc>http://reiven-c-t.github.io/Programming/ubuntu-18.04-cuda-tensorflow.html</loc>
+        <lastmod>2018-10-06T08:20:10.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -56,6 +48,14 @@
 
     <url>
         <loc>http://reiven-c-t.github.io/Programming/homebrew.html</loc>
+        <lastmod>2018-10-06T08:13:33.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://reiven-c-t.github.io/Programming/textlint.html</loc>
         <lastmod>2018-10-06T08:13:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

@@ -16,6 +16,13 @@
     </url>
 
     <url>
+        <loc>http://reiven-c-t.github.io/tags/homebrew/</loc>
+        <lastmod>2018-10-06T08:13:33.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://reiven-c-t.github.io/tags/textlint/</loc>
         <lastmod>2018-10-06T08:13:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -24,13 +31,6 @@
 
     <url>
         <loc>http://reiven-c-t.github.io/tags/nodejs/</loc>
-        <lastmod>2018-10-06T08:13:33.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://reiven-c-t.github.io/tags/homebrew/</loc>
         <lastmod>2018-10-06T08:13:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
