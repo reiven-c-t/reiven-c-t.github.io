@@ -51,13 +51,6 @@
     </url>
 
     <url>
-        <loc>http://reiven-c-t.github.io/tags/anaconda/</loc>
-        <lastmod>2018-10-06T08:20:10.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://reiven-c-t.github.io/tags/ubuntu18-04/</loc>
         <lastmod>2018-10-06T08:20:10.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -87,6 +80,13 @@
 
     <url>
         <loc>http://reiven-c-t.github.io/tags/gpu/</loc>
+        <lastmod>2018-10-06T08:20:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://reiven-c-t.github.io/tags/anaconda/</loc>
         <lastmod>2018-10-06T08:20:10.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
